@@ -7,6 +7,10 @@ Variables:
     machineScore
 */
 let gamingInstruction, playerColorCode, machineColorCode, playerScore, machineScore;
+
+let playerCoinElement = document.getElementById('player-coin'),
+    machineCoinElement = document.getElementById('machine-coin');
+
 const min = 1, max = 7;
 playerScore = 0;
 machineScore = 0;
@@ -61,12 +65,63 @@ function rollTheDice(){
     return randomNumber;
 }
 
-function updatePlayerScore(){
+let updatePlayerScore = function (){
     let diceScore = rollTheDice(); //1 - 6
-    console.log('diceScore: ' + diceScore);
     playerScore = playerScore + diceScore; 
-    console.log('playerScore: ' + playerScore);
     playerScore = snakeOrLadder(playerScore);
-    console.log('playerScore after checking: ' + playerScore);
+
+    // Update value in UI
+    let playerScoreElement = document.getElementById('player-score');
+    playerScoreElement.innerHTML = playerScore;
+
+    // Todo: Move player coin
+    playerCoinElement.style.left = '500px';
+    playerCoinElement.style.top = '500px';
 //    return playerScore;
 }
+
+function updateMachineScore(){
+    let diceScore = rollTheDice(); //1 - 6
+    console.log('diceScore: ' + diceScore);
+    machineScore = machineScore + diceScore; 
+    console.log('machineScore: ' + machineScore);
+    machineScore = snakeOrLadder(machineScore);
+    console.log('machineScore after checking: ' + machineScore);
+//    return machineScore;
+
+    let machineScoreElement = document.getElementById('machine-score');
+    machineScoreElement.innerHTML = machineScore;
+}
+
+function checkIfWon(score){
+    if(score >= 100){
+        return true
+    }else{
+        return false
+    }
+}
+
+// Todo: Improve the code flow.
+function handleDiceClick(){
+    // update player score
+    updatePlayerScore();
+
+    // check if player won
+    if(playerScore >= 20){
+
+        let resultElement = document.getElementById('result');
+        resultElement.innerHTML = 'Wow! You won.';
+
+    }else{
+        
+        updateMachineScore();
+
+        if(machineScore >= 20){
+            let resultElement = document.getElementById('result');
+            resultElement.innerHTML = 'Sorry, You lost.';
+        }
+    }
+}
+
+let rollElement = document.getElementById('roll');
+rollElement.addEventListener('click', handleDiceClick);

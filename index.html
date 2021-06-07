@@ -5,66 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      *{
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
-      .game-container {
-        width: 600px;
-        border: solid 1px #7a5705;
-        margin: auto;
-        background-color: #000;
-        position: relative;
-      }
-      .row{
-        display: flex;
-        flex-wrap: nowrap;
-      }
-      .reverse{
-        flex-direction: row-reverse;
-      }
-      .col{
-        flex-grow: 1;
-        flex-basis: 0%;
-        border: solid 1px #7a5705;
-        height: 60px;
-        text-align: center;
-        font-size: 30px;
-        font-family: 'Arial';
-        font-weight: bold;
-        color: #fff;
-        text-shadow: #000 0px 0px 4px;
-        padding: 12px 0;
-        border-radius: 4px;
-      }
-      .col:nth-child( odd ){
-        background-color: #fba101;
-      }
-      .col:nth-child( even ){
-        background-color: #ffef85;
-      }
-      .player{
-        width: 20px;
-        height: 20px;
-        background: red;
-        border-radius: 50%;
-        position: absolute;
-        top: 550px;
-        left: -30px;
-        transition: all 1s;
-      }
-      .machine{
-        width: 20px;
-        height: 20px;
-        background: blue;
-        border-radius: 50%;
-        position: absolute;
-        top: 575px;
-        left: -30px;
-      }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <div class="game-container">
@@ -191,6 +132,29 @@
       <div class="coins">
         <div class="player" id="player-coin"></div>
         <div class="machine" id="machine-coin"></div>
+      </div>
+      <div class="ladders">
+        <div class="ladder-1"></div>
+        <div class="ladder-4"></div>
+        <div class="ladder-9"></div>
+        <div class="ladder-21"></div>
+        <div class="ladder-28"></div>
+        <div class="ladder-36"></div>
+        <div class="ladder-51"></div>
+        <div class="ladder-71"></div>
+        <div class="ladder-80"></div>
+      </div>
+      <div class="snakes">
+        <div class="snake-16"></div>
+        <div class="snake-47"></div>
+        <div class="snake-49"></div>
+        <div class="snake-56"></div>
+        <div class="snake-62"></div>
+        <div class="snake-64"></div>
+        <div class="snake-87"></div>
+        <div class="snake-93"></div>
+        <div class="snake-95"></div>
+        <div class="snake-98"></div>
       </div>
     </div>
 

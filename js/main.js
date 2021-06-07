@@ -65,18 +65,25 @@ function rollTheDice(){
     return randomNumber;
 }
 
+
+
 let updatePlayerScore = function (){
     let diceScore = rollTheDice(); //1 - 6
-    playerScore = playerScore + diceScore; 
+    playerScore = playerScore + diceScore;
+    // Todo: Perform an animation here
+
+
     playerScore = snakeOrLadder(playerScore);
+
+    // Todo: Perform an animation here
 
     // Update value in UI
     let playerScoreElement = document.getElementById('player-score');
     playerScoreElement.innerHTML = playerScore;
 
     // Todo: Move player coin
-    playerCoinElement.style.left = '500px';
-    playerCoinElement.style.top = '500px';
+    // playerCoinElement.style.left = '500px';
+    // playerCoinElement.style.top = '500px';
 //    return playerScore;
 }
 

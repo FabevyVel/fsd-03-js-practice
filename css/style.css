@@ -1,0 +1,210 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.game-container {
+  width: 600px;
+  border: solid 1px #7a5705;
+  margin: auto;
+  background-color: #000;
+  position: relative;
+}
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.reverse {
+  flex-direction: row-reverse;
+}
+.col {
+  flex-grow: 1;
+  flex-basis: 0%;
+  border: solid 1px #7a5705;
+  height: 60px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Arial";
+  font-weight: bold;
+  color: #fff;
+  text-shadow: #000 0px 0px 4px;
+  padding: 12px 0;
+  border-radius: 4px;
+}
+.col:nth-child(odd) {
+  background-color: #fba101;
+}
+.col:nth-child(even) {
+  background-color: #ffef85;
+}
+.player {
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 550px;
+  left: -30px;
+  transition: all 1s;
+}
+.machine {
+  width: 20px;
+  height: 20px;
+  background: blue;
+  border-radius: 50%;
+  position: absolute;
+  top: 575px;
+  left: -30px;
+}
+.ladder-1 {
+  position: absolute;
+  background: url(../images/ladder_1.png) no-repeat;
+  width: 149px;
+  height: 189px;
+  bottom: 28px;
+  left: 16px;
+}
+.ladder-4 {
+  position: absolute;
+  background: url(../images/ladder_4.png) no-repeat;
+  width: 172px;
+  height: 94px;
+  bottom: 8px;
+  left: 215px;
+}
+.ladder-9 {
+  position: absolute;
+  background: url(../images/ladder_9.png) no-repeat;
+  width: 99px;
+  height: 172px;
+  bottom: 28px;
+  left: 486px;
+}
+.ladder-21 {
+  position: absolute;
+  background: url(../images/ladder_21.png) no-repeat;
+  width: 78px;
+  height: 101px;
+  bottom: 158px;
+  left: 16px;
+}
+.ladder-28 {
+  position: absolute;
+  background: url(../images/ladder_28.png) no-repeat;
+  width: 250px;
+  height: 348px;
+  bottom: 157px;
+  left: 206px;
+}
+.ladder-36 {
+  position: absolute;
+  background: url(../images/ladder_36.png) no-repeat;
+  width: 75px;
+  height: 85px;
+  bottom: 199px;
+  left: 206px;
+}
+.ladder-51 {
+  position: absolute;
+  background: url(../images/ladder_51.png) no-repeat;
+  width: 166px;
+  height: 93px;
+  bottom: 313px;
+  left: 396px;
+}
+.ladder-71 {
+  position: absolute;
+  background: url(../images/ladder_71.png) no-repeat;
+  width: 50px;
+  height: 96px;
+  bottom: 468px;
+  left: 541px;
+}
+.ladder-80 {
+  position: absolute;
+  background: url(../images/ladder_80.png) no-repeat;
+  width: 46px;
+  height: 95px;
+  bottom: 464px;
+  left: 6px;
+}
+.snake-16 {
+  position: absolute;
+  background: url(../images/snake_16.png) no-repeat;
+  width: 136px;
+  height: 94px;
+  bottom: 6px;
+  left: 186px;
+}
+.snake-47 {
+    position: absolute;
+    background: url(../images/snake_47.png) no-repeat;
+    width: 136px;
+    height: 144px;
+    top: 324px;
+    left: 326px;
+}
+.snake-49 {
+    position: absolute;
+    background: url(../images/snake_49.png) no-repeat;
+    width: 106px;
+    height: 204px;
+    top: 316px;
+    left: 506px;
+}
+.snake-56 {
+    position: absolute;
+    background: url(../images/snake_56.png) no-repeat;
+    width: 196px;
+    height: 64px;
+    top: 236px;
+    left: 274px;
+}
+.snake-62 {
+    position: absolute;
+    background: url(../images/snake_62.png) no-repeat;
+    width: 86px;
+    height: 314px;
+    top: 216px;
+    left: 86px;
+}
+.snake-64 {
+    position: absolute;
+    background: url(../images/snake_64.png) no-repeat;
+    width: 156px;
+    height: 94px;
+    top: 206px;
+    left: 56px;
+}
+.snake-87 {
+    position: absolute;
+    background: url(../images/snake_87.png) no-repeat;
+    width: 228px;
+    height: 374px;
+    top: 86px;
+    left: 196px;
+}
+.snake-93 {
+    position: absolute;
+    background: url(../images/snake_93.png) no-repeat;
+    width: 88px;
+    height: 134px;
+    top: 16px;
+    left: 446px;
+}
+.snake-95 {
+    position: absolute;
+    background: url(../images/snake_95.png) no-repeat;
+    width: 86px;
+    height: 134px;
+    top: 6px;
+    left: 235px;
+}
+.snake-98 {
+    position: absolute;
+    background: url(../images/snake_98.png) no-repeat;
+    width: 86px;
+    height: 134px;
+    top: 6px;
+    left: 48px;
+}

@@ -65,13 +65,41 @@ function rollTheDice(){
     return randomNumber;
 }
 
+function findPlayerCoinPosition(){
+    let left, top;
 
+    // top => 550 ; left => 30
+    //Do calculation based on value of 'playerScore'
+
+    //Find Top Value 
+    top = (playerScore - 1 ) / 10; //0.1 => 9.9
+    top = parseInt(top); // 0 => 9
+    top = 550 - (top * 60);
+
+    //Find Left Value
+
+    left = playerScore % 10;
+    left = (left == 0) ? 10 : left;
+
+    if((parseInt((left - 1) / 10) % 2) == 0){
+        left = ((left-1)*60) + 30; //=((left-1)*60)+30
+    }else{
+        left = ((11-left-1)*60)+30;  //=((11-left-1)*60)+30
+    }
+
+    console.log(left, top);
+    
+}
+
+function findMachineCoinPosition(){
+    
+}
 
 let updatePlayerScore = function (){
     let diceScore = rollTheDice(); //1 - 6
     playerScore = playerScore + diceScore;
     // Todo: Perform an animation here
-
+    findPlayerCoinPosition()
 
     playerScore = snakeOrLadder(playerScore);
 

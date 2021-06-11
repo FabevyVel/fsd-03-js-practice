@@ -66,7 +66,7 @@ function rollTheDice(){
 }
 
 function findPlayerCoinPosition(){
-    let left, top;
+    let left, top, group, position = {};
 
     // top => 550 ; left => 30
     //Do calculation based on value of 'playerScore'
@@ -80,27 +80,78 @@ function findPlayerCoinPosition(){
 
     left = playerScore % 10;
     left = (left == 0) ? 10 : left;
+    // left = 1, 2, 3, 4, 10
 
-    if((parseInt((left - 1) / 10) % 2) == 0){
+
+    //find group
+    // sub 1 from player score, so that first number will be either odd / even
+    //playerScore = 15;
+    group = playerScore - 1; // 15-1 => 14
+    group = group / 10; // 14 /10 => 1.4
+    group = parseInt(group) // parseInt(1.4) => 1
+    group = group % 2 // 1 % 2 => 1 ; 3 % 2 => 1 ; 2 % 2 => 0
+
+    if(group == 0){
         left = ((left-1)*60) + 30; //=((left-1)*60)+30
     }else{
         left = ((11-left-1)*60)+30;  //=((11-left-1)*60)+30
     }
 
-    console.log(left, top);
+    position.left = left;
+    position.top = top;
+
+    return position;
     
 }
-
+function applyPosition(element, value){
+    element.style.left = value.left+'px';
+    element.style.top = value.top+'px';
+}
 function findMachineCoinPosition(){
-    
+    let left, top, group, position = {};
+
+    // top => 550 ; left => 30
+    //Do calculation based on value of 'playerScore'
+
+    //Find Top Value 
+    top = (machineScore - 1 ) / 10; //0.1 => 9.9
+    top = parseInt(top); // 0 => 9
+    top = 550 - (top * 60);
+
+    //Find Left Value
+
+    left = machineScore % 10;
+    left = (left == 0) ? 10 : left;
+    // left = 1, 2, 3, 4, 10
+
+
+    //find group
+    // sub 1 from player score, so that first number will be either odd / even
+    //playerScore = 15;
+    group = machineScore - 1; // 15-1 => 14
+    group = group / 10; // 14 /10 => 1.4
+    group = parseInt(group) // parseInt(1.4) => 1
+    group = group % 2 // 1 % 2 => 1 ; 3 % 2 => 1 ; 2 % 2 => 0
+
+    if(group == 0){
+        left = ((left-1)*60) + 30; //=((left-1)*60)+30
+    }else{
+        left = ((11-left-1)*60)+30;  //=((11-left-1)*60)+30
+    }
+
+    top += 25; // top = top + 25;
+
+    position.left = left;
+    position.top = top;
+
+    return position;
 }
 
 let updatePlayerScore = function (){
+    let position;
     let diceScore = rollTheDice(); //1 - 6
     playerScore = playerScore + diceScore;
-    // Todo: Perform an animation here
-    findPlayerCoinPosition()
-
+    
     playerScore = snakeOrLadder(playerScore);
 
     // Todo: Perform an animation here
@@ -109,13 +160,14 @@ let updatePlayerScore = function (){
     let playerScoreElement = document.getElementById('player-score');
     playerScoreElement.innerHTML = playerScore;
 
-    // Todo: Move player coin
-    // playerCoinElement.style.left = '500px';
-    // playerCoinElement.style.top = '500px';
-//    return playerScore;
+    
+    position = findPlayerCoinPosition();
+    applyPosition( playerCoinElement, position);
+    
 }
 
 function updateMachineScore(){
+    let position;
     let diceScore = rollTheDice(); //1 - 6
     console.log('diceScore: ' + diceScore);
     machineScore = machineScore + diceScore; 
@@ -126,6 +178,9 @@ function updateMachineScore(){
 
     let machineScoreElement = document.getElementById('machine-score');
     machineScoreElement.innerHTML = machineScore;
+    
+    position = findMachineCoinPosition();
+    applyPosition( machineCoinElement, position);
 }
 
 function checkIfWon(score){
@@ -142,7 +197,7 @@ function handleDiceClick(){
     updatePlayerScore();
 
     // check if player won
-    if(playerScore >= 20){
+    if(playerScore >= 100){
 
         let resultElement = document.getElementById('result');
         resultElement.innerHTML = 'Wow! You won.';

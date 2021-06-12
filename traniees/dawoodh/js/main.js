@@ -82,10 +82,22 @@ function rollTheDice () {
 
 function updateplayerscore(){
     let dicescore = rollTheDice ();
-    console.log('playerscore: '  + playerscore + 'dicescore:' + dicescore)
+    console.log('playerscore: '  + playerscore )
+    console.log('dicescore:' + dicescore)
     playerscore = playerscore + dicescore;
+    console.log('playerscore after checking: '  + playerscore )
     playerscore = snakeOrLadder(playerscore);
     return playerscore;
+}
+
+function updatemachineScore(){
+    let dicescore = rollTheDice ();
+    console.log('machineScore: '  + playerscore )
+    console.log('dicescore:' + dicescore)
+    machineScoremachineScoree = machineScore + dicescore;
+    console.log('machineScore after checking: '  + machineScore )
+    machineScore = snakeOrLadder(machineScore);
+    return machineScore;
 }
 
 

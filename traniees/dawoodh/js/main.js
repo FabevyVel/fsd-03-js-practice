@@ -87,18 +87,30 @@ function updateplayerscore(){
     playerscore = playerscore + dicescore;
     console.log('playerscore after checking: '  + playerscore )
     playerscore = snakeOrLadder(playerscore);
-    return playerscore;
+    // return playerscore;
+    let playerscoreElements = document.getElementById('player-1');
+    playerscoreElements.innerHTML = playerscore;
+    updatemachineScore();
+
+    
 }
+
+
 
 function updatemachineScore(){
     let dicescore = rollTheDice ();
-    console.log('machineScore: '  + playerscore )
+    console.log('machineScore: '  + machineScore )
     console.log('dicescore:' + dicescore)
-    machineScoremachineScoree = machineScore + dicescore;
+    machineScore = machineScore + dicescore;
     console.log('machineScore after checking: '  + machineScore )
     machineScore = snakeOrLadder(machineScore);
-    return machineScore;
+    // return machineScore;
+    let machineScoreElement = document.getElementById('player-2');
+    machineScoreElement.innerHTML = machineScore;
 }
+
+let rollElement = document.getElementById('rollthedice');
+rollElement.addEventListener('click',updateplayerscore)
 
 
 

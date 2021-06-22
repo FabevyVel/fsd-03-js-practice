@@ -1,0 +1,12 @@
+body{
+    background : url("https://cdn.pixabay.com/photo/2017/09/23/04/02/dice-2777809_960_720.jpg")no-repeat fixed;
+    background-size: cover;
+}
+
+h1,h2{
+    color: #fff;
+}
+
+.title{
+    text-align: center;
+}  
